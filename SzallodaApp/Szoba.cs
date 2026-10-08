@@ -6,33 +6,28 @@ namespace SzallodaApp
 {
     public class Szoba
     {
-        public int Szobaszam { get; set; }
-        protected int alapar { get; set; }
+        public int SzobaSzam { get;}
+        protected int alapar;
         public int Alapar
         {
             get { return alapar; }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException("Az alapár nem lehet negatív.");
-                }
-                alapar = value;
+                if (value > 0)  alapar = value; 
             }
         }
-        public Szoba (int szobaSzam, int alaperAr,int Alapar)
+        public Szoba (int SzobaSzam ,int Alapar)
         {
-            Szobaszam = szobaSzam;
-            Alapar = alaperAr;
-            alapar = Alapar;
+            this.SzobaSzam = SzobaSzam;
+            this.Alapar = Alapar;
         }
-        public virtual int arkiszamitas()
+        public virtual int Arkiszamitas(int ejszakakSzama)
         {
-            return Alapar*alapar;
+            return Alapar*ejszakakSzama;
         }
         public override string ToString()
         {
-            return  ($"Szoba{Szobaszam} | Alapár: {alapar} Ft / éj");
+            return  $"Szoba{SzobaSzam} | Alapár: {Alapar} Ft / éj";
         }
 
     }
